@@ -1,8 +1,8 @@
 "use client"
-import { Check, CopyIcon, EyeIcon, Icon } from "lucide-react";
+import { Check, CopyIcon, EyeIcon } from "lucide-react";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 import { useEffect, useState } from "react";
 type Url={
     id:string,
@@ -11,7 +11,7 @@ type Url={
     visits:number
 }
 
-export default function(){
+export default function urlList(){
     const [url,setUrl]=useState<Url[]>([])
     const [copied,setCopied]=useState(false)
     const [copiedUrl,setCopiedUrl]=useState("")

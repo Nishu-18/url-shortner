@@ -1,7 +1,7 @@
 import ShortenForm from "./shorten-form";
 import UrlList from "./url-list";
 
-export default function(){
+export default function UrlShortener(){
     return <div>
         <ShortenForm/>
         <UrlList/>

@@ -3,20 +3,17 @@ import React, { useState } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import axios from "axios";
-import { error } from "console";
 
-export default  function(){
+
+export default  function UrlShortenerForm(){
     const [url,setUrl]=useState("")
     const [isLoading,setLoading]=useState(false)
-     async function  handleSubmit(e:React.FormEvent){
+     async function  handleSubmit(){
        // e.preventDefault()
        setLoading(true)
     
         try {
-            // const res=await axios.post("/api/shortenUrl",{
-            //     url:url
-            // })
-            console.log(url);
+           
             await axios.post("/api/shortenUrl",{
                 url
             })

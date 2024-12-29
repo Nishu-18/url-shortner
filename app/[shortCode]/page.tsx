@@ -25,7 +25,7 @@ export default async function RedirectPage({params}:RedirectPageProps){
         }
     })
     
-    redirect(url?.originalUrl!)
+    redirect(url?.originalUrl as string)
     
     
 }
