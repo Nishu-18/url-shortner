@@ -1,11 +1,13 @@
+
+import { PageProps } from "@/.next/types/app/page"
 import prisma from "@/lib/db"
 import { redirect } from "next/navigation"
 
-type RedirectPageProps={
-    params:{shortCode:string}
+interface RedirectPageProps extends PageProps{
+    params:Promise< {shortCode:string}>
 }
 export default async function RedirectPage({params}:RedirectPageProps){
-    const {shortCode}= params
+    const {shortCode}=await params
     const url =await prisma.url.findUnique({
         where:{
             shortCode:shortCode
