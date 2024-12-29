@@ -2,13 +2,33 @@
 import React, { useState } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
+import axios from "axios";
+import { error } from "console";
 
-export default function(){
+export default  function(){
     const [url,setUrl]=useState("")
-    function handleSubmit(e:React.FormEvent){
-        e.preventDefault()
+    const [isLoading,setLoading]=useState(false)
+     async function  handleSubmit(e:React.FormEvent){
+       // e.preventDefault()
+       setLoading(true)
     
-        console.log(url);
+        try {
+            // const res=await axios.post("/api/shortenUrl",{
+            //     url:url
+            // })
+            console.log(url);
+            await axios.post("/api/shortenUrl",{
+                url
+            })
+            
+            setUrl('')
+        } catch (e) {
+            console.error("Error shortening URLs:",e)
+            
+        }finally{
+            setLoading(false)
+
+        }
         
     }
     return <>
@@ -17,7 +37,7 @@ export default function(){
             <Input onChange={(e)=>{
                 setUrl(e.target.value)
             }} className="h-12" type="url" placeholder="Enter URL to shorten" required/>
-            <Button  className="w-full p-2 " type="submit">Shorten Url</Button>
+            <Button disabled={isLoading} variant={"secondary"}  className="w-full p-2  bg-slate-600 rounded-md" type="submit">{isLoading?"Shortening...":'Shorten Url'}</Button>
         </div>
         </form> 
     </>
