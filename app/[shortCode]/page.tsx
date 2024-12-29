@@ -5,7 +5,7 @@ interface RedirectPageProps{
     params:{shortCode:string}
 }
 export default async function RedirectPage({params}:RedirectPageProps){
-    const {shortCode}=await params
+    const {shortCode}= params
     const url =await prisma.url.findUnique({
         where:{
             shortCode:shortCode
