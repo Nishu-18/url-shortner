@@ -11,7 +11,7 @@ type Url={
     visits:number
 }
 
-export default function urlList(){
+export default function UrlList(){
     const [url,setUrl]=useState<Url[]>([])
     const [copied,setCopied]=useState(false)
     const [copiedUrl,setCopiedUrl]=useState("")
