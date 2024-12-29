@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 export default async function RedirectPage({
     params,
 }: {
-    params: { shortCode: string }; // Directly inline the expected structure
+    params:any; // Directly inline the expected structure
 }) {
     const { shortCode } = params; // No await needed
 
